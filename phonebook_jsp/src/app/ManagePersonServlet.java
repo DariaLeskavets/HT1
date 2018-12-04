@@ -115,7 +115,7 @@ public class ManagePersonServlet extends HttpServlet {
         			request.setAttribute("jsp_parameters", jsp_parameters);
         			
         			// Передача запроса в JSP.
-        			dispatcher_for_manager.forward(request, response);
+        			dispatcher_for_editorPerson.forward(request, response);
         		break;
 			
         		// Редактирование записи.
@@ -133,7 +133,7 @@ public class ManagePersonServlet extends HttpServlet {
         			request.setAttribute("jsp_parameters", jsp_parameters);
         			
         			// Передача запроса в JSP.
-        			dispatcher_for_editorPerson.forward(request, response);
+        			dispatcher_for_manager.forward(request, response);
         		break;
 			
         		// Удаление записи.

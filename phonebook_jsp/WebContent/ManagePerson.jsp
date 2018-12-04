@@ -57,8 +57,18 @@
         <td>Отчество:</td>
         <td><input type="text" name="middlename" value="<%=person.getMiddlename()%>"/></td>
     </tr>
- 
     <tr>
+        <td rowspan="person.getPhones().size()">Телефоны:</td>
+       <td>
+         <textarea name="phones" cols="40" rows="5"><%
+          for(String phone : person.getPhones().values())
+           {
+         	out.write(phone + "\n");
+         	
+           }
+         %></textarea>
+        </td>  
+    <tr> 
         <td colspan="2" align="center">
          <input type="submit" name="<%=jsp_parameters.get("next_action")%>" value="<%=jsp_parameters.get("next_action_label")%>" /><br>
          <a href="<%=request.getContextPath()%>/?action=back">Вернуться к списку</a>

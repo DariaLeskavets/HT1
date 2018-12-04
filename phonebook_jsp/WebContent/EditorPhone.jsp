@@ -11,11 +11,42 @@
 </head>
 <body>
 
+<%
+	HashMap<String,String> jsp_parameters = new HashMap<String,String>();
+	Person person = new Person();
+	String error_message = "";
+
+	if (request.getAttribute("jsp_parameters") != null)
+	{
+		jsp_parameters = (HashMap<String,String>)request.getAttribute("jsp_parameters");
+	}
+
+	if (request.getAttribute("person") != null)
+	{
+		person=(Person)request.getAttribute("person");
+	}
+	
+	error_message = jsp_parameters.get("error_message");
+%>
+
+<form action="<%=request.getContextPath()%>/" method="post">
+<input type="hidden" name="id" value="<%=person.getId()%>"/>
+<table align="center" border="1" width="70%">
+    <%
+    if ((error_message != null)&&(!error_message.equals("")))
+    {
+    %>
+    <tr>
+     	<td colspan="2" align="center"><span style="color:red"><%=error_message%></span></td>
+    </tr>
+    <%
+    }
+    %>
 
 
 <table align="center" border="1" width="70%">
  <tr>
-    <td colspan="2" align="center">Информация о телефоне владельца:</td>
+    <td colspan="2" align="center">Информация о телефоне владельца: <input type="text" name="surname" value="<%=person.getSurname()%>"/></td>
  </tr>
 
 
